@@ -47,5 +47,3 @@ $ npm run server
 ```text
 http://localhost:4000/graphql
 ```
-
-🔥😊
