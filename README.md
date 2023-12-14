@@ -4,7 +4,7 @@
 
 ## Run, stop and restart the MongoDB service: 
 ```shell
-brew services start mongodb-community
+$ brew services start mongodb-community
 ```
 If everything is ok you should see something like this: 
 
@@ -16,8 +16,8 @@ If everything is ok you should see something like this:
 ## Other commands to interact with MongoDB server: 
 
 ```shell
-brew services stop mongodb-community
-brew services restart mongodb-community
+$ brew services stop mongodb-community
+$ brew services restart mongodb-community
 ```
 
 - If you need to check if the MongoDB is running, you can check this link in any browser: 
@@ -29,10 +29,9 @@ http://localhost:27017/
 ```shell
 $ mongodb://localhost:27017/mi-base-de-datos
 ```
+___
+# __*Run the GraphQL Server.*__ 
 
-👌
-
-## Run the GraphQL Server. 
 - You can use the command line: 
 ```shell
 $ node server.js  
@@ -47,3 +46,4 @@ $ npm run server
 ```text
 http://localhost:4000/graphql
 ```
+👌
