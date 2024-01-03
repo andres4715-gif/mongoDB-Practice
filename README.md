@@ -46,4 +46,39 @@ $ npm run server
 ```text
 http://localhost:4000/graphql
 ```
+
+# How to run the MongoDB on the terminal 
+
+- In a new mac terminal you should write: 
+```shell
+$ mongod
+```
+And you should see a log with a new Mongodb execution
+
+- Something like this. 
+
+![Alt text](image.png)
+
+- After adding this you can interact with mongodb using this command line. 
+
+```shell
+$ mongosh
+```
+
+And after this you should see something like this. 
+
+![Alt text](image-1.png)
+
+- After this you can write any mongodb command to interact with it. 
+
+Example:
+
+```shell
+$ show dbs
+```
+This command line should show the active data base on your system 
+
+![Alt text](image-2.png)
+
+
 👌
