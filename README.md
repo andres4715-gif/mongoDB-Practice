@@ -57,7 +57,7 @@ And you should see a log with a new Mongodb execution
 
 - Something like this. 
 
-![Alt text](image.png)
+![Alt text](./images/image.png)
 
 - After adding this you can interact with mongodb using this command line. 
 
@@ -67,7 +67,7 @@ $ mongosh
 
 And after this you should see something like this. 
 
-![Alt text](image-1.png)
+![Alt text](./images/image-1.png)
 
 - After this you can write any mongodb command to interact with it. 
 
@@ -78,7 +78,7 @@ $ show dbs
 ```
 This command line should show the active data base on your system 
 
-![Alt text](image-2.png)
+![Alt text](./images/image-2.png)
 
 
 👌
