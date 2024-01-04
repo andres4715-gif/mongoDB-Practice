@@ -17,7 +17,7 @@ $ use <database name>
 $ show collections 
 ```
 ## Command to show data within any collection. 
-```shell
+```javascript
 <database_name>.<collection_name>.find
 example: 
 db.users.find()
@@ -25,7 +25,7 @@ db.users.find()
 With find(): Shows the list of documents on specific collection. 
 
 - The output is:
-```json
+```javascript
 codigofacililto> db.users.find()
 [
   {
@@ -55,8 +55,8 @@ user1 = {
     "email": "andres@gmail.com"
 }
 ```
-## Command to create a new collection. 
-```shell
+## Command to create a new collection: .insert
+```javascript
 $ <database_name> <collection_name> 
 example: 
 db.users.insert(<object name>)
@@ -67,4 +67,79 @@ $ db.users.insert(user1)
 ```
 
 ## Version 2: 
+
+## Command to add just one document: insertOne()
+
+```shell
+$ insertOne()
+```
+Example: 
+
+Adding a document: 
+
+```json
+user3 = {
+    "username": "Daniel",
+    "age": 35,
+    "email": "daniel@gmail.com"
+}
+```
+
+```shell
+db.users.insertOne(user3)
+```
+- Output
+
+```shell
+codigofacililto> db.users.insertOne(user3)
+{
+  acknowledged: true,
+  insertedId: ObjectId('6596ca96b8ed56d0913a89e6')
+}
+```
+
+## Version 3: 
+
+## Command to add just one document: insertMany([data1, data2, data3])
+
+Example: 
+
+- documents: 
+
+```javascript
+user4 = {
+    "username": "Ines",
+    "age": 65,
+    "email": "ines@gmail.com"
+}
+
+user5 = {
+    "username": "Rosalba",
+    "age": 65,
+    "email": "rosalba@gmail.com"
+}
+
+user6 = {
+    "username": "Paula",
+    "age": 35,
+    "email": "paula@gmail.com"
+}
+```
+
+- Command line: 
+
+```shell
+$ db.users.insertMany([user4, user5, user6])
+```
+- Output
+```javascript
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6596cc63b8ed56d0913a89e7'),
+    '1': ObjectId('6596cc63b8ed56d0913a89e8'),
+    '2': ObjectId('6596cc63b8ed56d0913a89e9')
+  }
+}
+```
 
