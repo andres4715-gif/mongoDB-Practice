@@ -81,4 +81,11 @@ This command line should show the active data base on your system
 ![Alt text](./images/image-2.png)
 
 
+___
+
+I am watching this video: 
+https://www.youtube.com/watch?v=DPdAfgmkNuE&list=WL&index=1&t=12s
+minute: 40
+
+
 👌
