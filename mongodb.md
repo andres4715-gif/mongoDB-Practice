@@ -142,4 +142,3 @@ $ db.users.insertMany([user4, user5, user6])
   }
 }
 ```
-
