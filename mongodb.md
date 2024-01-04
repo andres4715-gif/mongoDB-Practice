@@ -1,30 +1,37 @@
-Para mostrar las bases de datos que estan activas en el sistema
-show databases or show db
+# **Mongodb commands:** 
 
-Para saber en que bsse de datos estamos trabajando
-db 
-
-Para crear una base de datos nueva o usar una que se quiera
-use codigofacililto
-
-Para mostrar las collections que existen en la base de datos
-show collections 
-
-Para crear una nueva Collection
-<nombre de la base de datos> <nombre de la colection> 
-
-Por ejemplo: 
-
-db.users.insert(<el objeto que se quiere persistir>)
-
-Para crear un objeto con el siguiente ejemplo: 
-
+## Command to Show active database on the system: 
+```shell
+$ show databases or show db
+``` 
+## Command to know in with database we are working
+```shell
+$ db 
+```
+## Command to create or use a database
+```shell
+$ use <database name>
+```
+## Command to show the collections. 
+```shell
+$ show collections 
+```
+## Command to create a new object. 
+```shell
 user1 = {
     "username": "Andres",
     "age": 42,
     "email": "andres@gmail.com"
 }
+```
+## Command to create a new collection. 
+```shell
+$ <database name> <collection name> 
+example: 
+db.users.insert(<object name>)
+```
 
-Para agregar el objeto a la collection seria de la siguiente forma 
-
-db.users.insert(user1)
+## Command to add an object to collection. 
+```shell
+$ db.users.insert(user1)
+```
