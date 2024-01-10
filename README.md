@@ -85,7 +85,7 @@ ___
 
 I am watching this video: 
 https://www.youtube.com/watch?v=DPdAfgmkNuE&list=WL&index=1&t=12s
-minute: 1:10:34
+minute: 1:27:19
 
 
 👌

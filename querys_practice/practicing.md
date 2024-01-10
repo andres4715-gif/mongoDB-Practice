@@ -1,47 +1,10 @@
-# **Mongodb commands:** 
+# Practice:
 
-## Command to Show active database on the system: 
-```shell
-$ show databases or show db
-``` 
-## Command to know in with database we are working
-```shell
-$ db 
-```
-## Command to create or use a database
-```shell
-$ use <database name>
-```
+# Obtain certain data from dataBase: 
 
-## Command to delete any database
-- After use the database if you want to remove this DB you would need to use this command line: 
-- Take in mind, if you remove this data base you would remove also the collections and documents.  
-```shell
-$ db.dropDatabase() 
-```
+Take in mind I have this data: 
 
-## Command to create new collections. 
-```shell
-$ db.createCollection("<collection name>")
-
-Example: 
-$ db.createCollection("users")
-```
-## Command to show the collections. 
-```shell
-$ show collections 
-```
-## Command to show data within any collection. 
-```javascript
-<database_name>.<collection_name>.find
-example: 
-db.users.find()
-```
-With find(): Shows the list of documents on specific collection. 
-
-- The output is:
-```javascript
-codigofacililto> db.users.find()
+```json
 [
   {
     _id: ObjectId('659602fab8ed56d0913a89e4'),
@@ -54,149 +17,63 @@ codigofacililto> db.users.find()
     username: 'Liliana',
     age: 47,
     email: 'limarios@gmail.com'
+  },
+  {
+    _id: ObjectId('6596ca96b8ed56d0913a89e6'),
+    username: 'Daniel',
+    age: 35,
+    email: 'daniel@gmail.com'
+  },
+  {
+    _id: ObjectId('6596cc63b8ed56d0913a89e7'),
+    username: 'Ines',
+    age: 65,
+    email: 'ines@gmail.com'
+  },
+  {
+    _id: ObjectId('6596cc63b8ed56d0913a89e8'),
+    username: 'Rosalba',
+    age: 65,
+    email: 'rosalba@gmail.com'
+  },
+  {
+    _id: ObjectId('6596cc63b8ed56d0913a89e9'),
+    username: 'Paula',
+    age: 35,
+    email: 'paula@gmail.com'
+  },
+  {
+    _id: ObjectId('6596e0a3b8ed56d0913a89ea'),
+    username: 'Carmen',
+    age: 7,
+    email: 'carmen@gmail.com',
+    status: 'inactive'
+  },
+  {
+    _id: ObjectId('6596e0a3b8ed56d0913a89eb'),
+    username: 'Stella',
+    age: 48,
+    email: 'stella@gmail.com',
+    status: 'active'
+  },
+  {
+    _id: ObjectId('6596e0a3b8ed56d0913a89ec'),
+    username: 'Osman',
+    age: 98,
+    email: 'Osman@gmail.com',
+    status: 'active'
+  },
+  {
+    _id: ObjectId('6596e0a3b8ed56d0913a89ed'),
+    username: 'Juan',
+    age: 78,
+    email: 'juan@gmail.com',
+    status: 'active'
   }
 ]
 ```
+## Practice 1: 
 
-# How to create data in Mongodb
-
-## Version 1: 
-
-## Command to create a new object. 
-```shell
-user1 = {
-    "username": "Andres",
-    "age": 42,
-    "email": "andres@gmail.com"
-}
-```
-## Command to create a new collection: .insert
-```javascript
-$ <database_name> <collection_name> 
-example: 
-db.users.insert(<object name>)
-```
-## Command to add an object to collection. 
-```shell
-$ db.users.insert(user1)
-```
-
-## Version 2: 
-
-## Command to add just one document: insertOne()
-
-```shell
-$ insertOne()
-```
-Example: 
-
-Adding a document: 
-
-```json
-user3 = {
-    "username": "Daniel",
-    "age": 35,
-    "email": "daniel@gmail.com"
-}
-```
-
-```shell
-db.users.insertOne(user3)
-```
-- Output
-
-```shell
-codigofacililto> db.users.insertOne(user3)
-{
-  acknowledged: true,
-  insertedId: ObjectId('6596ca96b8ed56d0913a89e6')
-}
-```
-
-## Version 3: 
-
-## Command to add just one document: insertMany()
-
-Example: 
-
-- documents: 
-
-```javascript
-user4 = {
-    "username": "Ines",
-    "age": 65,
-    "email": "ines@gmail.com"
-}
-
-user5 = {
-    "username": "Rosalba",
-    "age": 65,
-    "email": "rosalba@gmail.com"
-}
-
-user6 = {
-    "username": "Paula",
-    "age": 35,
-    "email": "paula@gmail.com"
-}
-```
-
-- Command line: 
-
-```shell
-$ db.users.insertMany([user4, user5, user6])
-```
-- Output
-```javascript
-{
-  acknowledged: true,
-  insertedIds: {
-    '0': ObjectId('6596cc63b8ed56d0913a89e7'),
-    '1': ObjectId('6596cc63b8ed56d0913a89e8'),
-    '2': ObjectId('6596cc63b8ed56d0913a89e9')
-  }
-}
-```
-
-# Methods witch returns cursors: 
-```text
-1. find()
-2. sort()
-3. limit()
-4. skip()
-5. pretty()
-6. count()
-```
-
-___
-# find().count()
-## Example 1: 
-- This is to check how many data we have on the collection. 
-command line: 
-
-```shell
-$ db.<collectionName>.find().count()
-
-Example: 
-$ db.users.find().count()
-```
-
-- The output is: 
-
-```json
-codigofacililto> db.users.find().count()
-23
-```
-
-## Example 2:
-```shell
-$ db.users.find({
-  age: {$gt: 50}
-}).count()
-```
-
-
-# Practice 1: find()
 - I want to get data with username Osman: 
 
 ## Version 1: 
@@ -218,7 +95,6 @@ The output is:
   }
 ]
 ```
-
 ## Version 2:
 
 ```shell
@@ -260,6 +136,7 @@ If you send the wrong arguments the output would be:
 $ codigofacililto> db.users.findOne({username: "Osman", age: 97}); 
 null
 ```
+___
 
 ## Practice 2: 
 - Obtain data with age greater than 50: 
@@ -681,7 +558,6 @@ $ db.users.find({
 ```
 
 ## Practice 10: sort();
-## Example1: 
 - Obtain DSC (descending) age list : 
 
 ```shell
@@ -760,29 +636,8 @@ $ db.users.find().sort({
 ]
 ```
 
-## Example2: .find().sort({
-```shell
-$ db.users.find().sort({
-  age: -1
-}).skip(3).limit(1)
-```
-
-- The output is: 
-```json
-[
-  {
-    _id: ObjectId('6596cc63b8ed56d0913a89e7'),
-    username: 'Ines',
-    age: 65,
-    email: 'ines@gmail.com'
-  }
-]
-```
-
 ## Practice 11: limit();
 - Obtain get the older user: 
-
-## Example1; 
 
 ```shell
 $ db.users.find().sort({
@@ -802,43 +657,6 @@ $ db.users.find().sort({
   }
 ]
 ```
-
-## Example2;
-
- ```shell
- $ db.users.fins().limit(4)
- ```
-
- - The output is: 
-
- ```json
- [
-  {
-    _id: ObjectId('659602fab8ed56d0913a89e4'),
-    username: 'Andres',
-    age: 42,
-    email: 'andres@gmail.com'
-  },
-  {
-    _id: ObjectId('6596b09cb8ed56d0913a89e5'),
-    username: 'Liliana',
-    age: 47,
-    email: 'limarios@gmail.com'
-  },
-  {
-    _id: ObjectId('6596ca96b8ed56d0913a89e6'),
-    username: 'Daniel',
-    age: 35,
-    email: 'daniel@gmail.com'
-  },
-  {
-    _id: ObjectId('6596cc63b8ed56d0913a89e7'),
-    username: 'Ines',
-    age: 65,
-    email: 'ines@gmail.com'
-  }
-]
- ```
 
 ## Practice 12: (ASC);
       * limit();
@@ -929,204 +747,3 @@ $ db.users.find( {
   }
 ]
 ```
-
-## skip()
-- After obtained data we can skip the number of data obtained with parameter
-## Example1:
-
-```shell
-$ db.users.find().skip(20)
-```
-- Take in mind applying the find() method we get 23 results, but applying the skip() method we just get 3 results
-
-- The output is:
-
-```json
-[
-  {
-    _id: ObjectId('659edae1ac51234e851bc666'),
-    username: 'user20',
-    age: 20,
-    email: 'user20@gmail.com',
-    status: 'inactive'
-  },
-  {
-    _id: ObjectId('659edae1ac51234e851bc667'),
-    username: 'user21',
-    age: 21,
-    email: 'user21@gmail.com',
-    status: 'inactive'
-  },
-  {
-    _id: ObjectId('659edae1ac51234e851bc668'),
-    username: 'user22',
-    age: 22,
-    email: 'user22@gmail.com',
-    status: 'inactive'
-  }
-]
-```
-
-## Example1:
-
-```shell
-$ db.users.find().skip(20).limit(1)
-```
-
-- Take in mind applying the find() method we get 23 results, but applying the skip() method we just get 3 results but after limit() 
-method execution we are getting the first result after avoiding the first 20 results
-
-- The output is:
-
-```json
-[
-  {
-    _id: ObjectId('659edae1ac51234e851bc666'),
-    username: 'user20',
-    age: 20,
-    email: 'user20@gmail.com',
-    status: 'inactive'
-  }
-]
-```
-
-## pretty()
-- Print the result in JSON format
-## Example: 
-
-```shell
-$ db.users.find().sort({ 
-  age: -1 }).skip(3).limit(1).pretty()
-```
-
-- The output is: 
-
-```json
-[
-  {
-    _id: ObjectId('6596cc63b8ed56d0913a89e7'),
-    username: 'Ines',
-    age: 65,
-    email: 'ines@gmail.com'
-  }
-]
-```
-
-## forEach()
-- Whe can get a list of usernames: 
-
-```shell
-$ db.users.find().forEach(user => print(user.username)); 
-```
-
-- The output is: 
-
-```text
-Andres
-Liliana
-Daniel
-Ines
-Rosalba
-Paula
-Carmen
-Stella
-Osman
-Juan
-user10
-user11
-user12
-user13
-user14
-user15
-user16
-user17
-user18
-user19
-user20
-user21
-user22
-```
-
-# Projections: 
-- With it we can get the specific data for every document
-
-## Example1, without arguments
-
-```shell
-$ db.users.find(
-  {}, 
-  {
-    username: true, 
-    _id: false, 
-    email: true
-  }
-).limit(2)
-```
-
-- The output is: 
-
-```json
-[
-  { username: 'Andres', email: 'andres@gmail.com' },
-  { username: 'Liliana', email: 'limarios@gmail.com' }
-]
-```
-
-## Example2: with the first argument
-- Filling the first argument to get specific data: 
-```shell
-$ db.users.find(
-  {
-    age: {
-      $gt: 50
-    }
-  }, 
-  {
-    username: true, 
-    _id: false, 
-    email: true, 
-    age: true
-  }
-)
-```
-
-- The output is: 
-
-```json
-[
-  { username: 'Ines', age: 65, email: 'ines@gmail.com' },
-  { username: 'Rosalba', age: 65, email: 'rosalba@gmail.com' },
-  { username: 'Osman', age: 98, email: 'Osman@gmail.com' },
-  { username: 'Juan', age: 78, email: 'juan@gmail.com' },
-  { username: 'user10', age: 69, email: 'user10@gmail.com' }
-]
-```
-
-## Example3, with arguments and limits
-
-```shell
-$ db.users.find(
-  {
-    age: {
-      $gt: 50
-    }
-  }, 
-  {
-    username: true, 
-    _id: false, 
-    email: true, 
-    age: true
-  }
-). limit(3)
-```
-- The output is: 
-
-```json
-[
-  { username: 'Ines', age: 65, email: 'ines@gmail.com' },
-  { username: 'Rosalba', age: 65, email: 'rosalba@gmail.com' },
-  { username: 'Osman', age: 98, email: 'Osman@gmail.com' }
-]
-```
-
-
