@@ -115,7 +115,7 @@ codigofacililto> db.users.insertOne(user3)
 
 ## Version 3: 
 
-## Command to add just one document: insertMany([data1, data2, data3])
+## Command to add just one document: insertMany()
 
 Example: 
 
