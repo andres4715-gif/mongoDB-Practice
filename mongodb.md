@@ -12,6 +12,21 @@ $ db
 ```shell
 $ use <database name>
 ```
+
+## Command to delete any database
+- After use the database if you want to remove this DB you would need to use this command line: 
+- Take in mind, if you remove this data base you would remove also the collections and documents.  
+```shell
+$ db.dropDatabase() 
+```
+
+## Command to create new collections. 
+```shell
+$ db.createCollection("<collection name>")
+
+Example: 
+$ db.createCollection("users")
+```
 ## Command to show the collections. 
 ```shell
 $ show collections 
