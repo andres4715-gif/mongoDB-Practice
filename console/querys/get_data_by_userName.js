@@ -1,7 +1,7 @@
 // data
 
 
-codigofacililto> db.users.find()
+codigofacililto > db.users.find()
 [
   {
     _id: ObjectId('659602fab8ed56d0913a89e4'),
@@ -72,16 +72,16 @@ codigofacililto> db.users.find()
 // get the data to a specific userName
 
 db.users.find({  // This returns a cursor
-    username: "Liliana"
+  username: "Liliana"
 });
 
 // output: 
 
 [
-    {
-      _id: ObjectId('6596b09cb8ed56d0913a89e5'),
-      username: 'Liliana',
-      age: 47,
-      email: 'limarios@gmail.com'
-    }
-  ] 
+  {
+    _id: ObjectId('6596b09cb8ed56d0913a89e5'),
+    username: 'Liliana',
+    age: 47,
+    email: 'limarios@gmail.com'
+  }
+] 

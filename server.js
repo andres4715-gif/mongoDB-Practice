@@ -4,15 +4,18 @@ const {
   GraphQLSchema, 
   GraphQLObjectType, 
   GraphQLString, 
+  GraphQLInt,
   GraphQLList,
   GraphQLID,
   GraphQLInputObjectType,
+  GraphQLNonNull,
 } = require('graphql');
 const mongoose = require('mongoose');
 
 
 // Connect to your Database service in MongoDB
-mongoose.connect('mongodb://localhost:27017/mi-base-de-datos', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/mi-base-de-datos',
+  { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, '❌ WRONG Connection to MongoDB:'));
@@ -29,6 +32,7 @@ const PostModel = mongoose.model('Post', {
     type: [{
       name: String,
       role: String,
+      age: Number,
     }],
     default: [] // Default to an empty array
   }
@@ -47,6 +51,7 @@ const PostType = new GraphQLObjectType({
         fields: {
           name: { type: GraphQLString },
           role: { type: GraphQLString },
+          age: { type: GraphQLInt }
         }
       }))
     }
@@ -59,6 +64,7 @@ const ActorInputType = new GraphQLInputObjectType({
   fields: {
     name: { type: GraphQLString },
     role: { type: GraphQLString },
+    age: { type: GraphQLInt },
   },
 });
 
@@ -72,7 +78,10 @@ const RootMutationType = new GraphQLObjectType({
         title: { type: GraphQLString },
         content: { type: GraphQLString },
         date: { type: GraphQLString },
-        actors: { type: new GraphQLList(ActorInputType) }, // Use GraphQLList for an array
+        actors: { 
+          type: new GraphQLList(ActorInputType),
+          // Modify ActorInputType to include the age field
+        },
       },
       resolve: async (_, args) => {
         const post = new PostModel(args);
@@ -83,6 +92,7 @@ const RootMutationType = new GraphQLObjectType({
   },
 });
 
+
 const getType = new GraphQLObjectType({
   name: 'getMovies',
   fields: {
@@ -90,15 +100,16 @@ const getType = new GraphQLObjectType({
     title: { type: GraphQLString },
     content: { type: GraphQLString },
     date: { type: GraphQLString },
-    actors: {
+    actors: { // Define as a function returning the GraphQLList
       type: new GraphQLList(new GraphQLObjectType({
         name: 'Actor_',
         fields: {
           name: { type: GraphQLString },
           role: { type: GraphQLString },
+          age: { type: GraphQLInt },
         }
       }))
-    },
+    }
   },
 });
 
@@ -132,7 +143,8 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true, // Enable GraphiQL to test the queries and mutation in the browser
 }));
 
-// Run the server
+// Run the GRAPHQL server 
+// example: http://localhost:4000/graphql
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`✅ GraphQL server in http://localhost:${PORT}/graphql`);

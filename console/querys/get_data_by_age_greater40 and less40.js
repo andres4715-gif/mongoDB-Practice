@@ -1,6 +1,6 @@
 // data
 
-codigofacililto> db.users.find()
+codigofacililto > db.users.find()
 [
   {
     _id: ObjectId('659602fab8ed56d0913a89e4'),
@@ -72,10 +72,10 @@ codigofacililto> db.users.find()
 // get the data with age > 40
 // This returns a document. 
 
-db.users.find({  
-    age: {
-      $gt: 40
-    }
+db.users.find({
+  age: {
+    $gt: 40
+  }
 });
 
 // output: 
@@ -131,7 +131,7 @@ db.users.find({
 // get the data with age < 40
 
 
-db.users.find({  
+db.users.find({
   age: {
     $lt: 40
   }
